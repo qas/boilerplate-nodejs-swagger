@@ -1,0 +1,13 @@
+# Documentation
+# https://docs.docker.com/compose/compose-file
+
+version: '3.2'
+
+services:
+  app:
+    build: .
+    restart: always
+    env_file: 
+      - ./.env
+    ports:
+      - 7070:7070

@@ -1,0 +1,118 @@
+{
+  "name": "koa-rest-api-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for Koa RESTful API application with Docker, Swagger, Jest, Coveralls, and Circle CI",
+  "homepage": "https://bitbucket.org/fitbe/template-server-nodejs-2",
+  "author": {
+    "name": "Fitbe, Inc.",
+    "email": "devs@fitbe.co",
+    "url": "https://wwws.fitbe.co"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/fitbe/template-server-nodejs-2.git"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/fitbe/template-server-nodejs-2/issues"
+  },
+  "keywords": [
+    "typescript",
+    "babel7",
+    "koa",
+    "koa2",
+    "rest",
+    "restful",
+    "api",
+    "koa-boilerplate",
+    "boilerplate",
+    "skeleton"
+  ],
+  "engines": {
+    "node": ">= 8.9.0"
+  },
+  "main": "src",
+  "scripts": {
+    "clean": "gts clean && rm -rf build",
+    "build": "tsc && npm run clean && babel ./src --extensions '.ts,.tsx' -d build && find src/spec -type f -name '*.yaml' -exec cp '{}' build/spec/ ';'",
+    "start": "node build",
+    "dev": "concurrently --kill-others --names \"tsc,node\" -c \"blue,green\" \"npx tsc --watch\" \"npx nodemon src/index.ts --inspect=5858 --exec babel-node --extensions '.ts,.tsx' src/index.ts\"",
+    "test": "tsc && cross-env NODE_ENV=test jest --forceExit --verbose --no-cache",
+    "test:unit": "npm test -- test/unit",
+    "test:integration": "npm test -- test/integration",
+    "test:watch": "npm test -- --watch",
+    "test:watch:unit": "npm run test:unit -- --watch",
+    "test:watch:integration": "npm run test:integration -- --watch",
+    "test:coverage": "npm test -- --coverage",
+    "test:coverage:unit": "npm run test:unit -- --coverage",
+    "test:coverage:integration": "npm run test:integration -- --coverage",
+    "lint": "tslint --fix --project .",
+    "check": "gts check",
+    "compile": "tsc -p .",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check"
+  },
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "elastic-apm-node": "^1.2.1",
+    "kcors": "^2.2.1",
+    "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.4.0",
+    "module-alias": "^2.1.0",
+    "swagger-jsdoc": "^1.9.7",
+    "uuid": "^3.2.1",
+    "winston": "^3.0.0",
+    "winston-loggly-bulk": "^2.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-rc.1",
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/node": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "@babel/preset-typescript": "^7.0.0-rc.1",
+    "@babel/register": "^7.0.0-rc.1",
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.7.1",
+    "concurrently": "^3.6.1",
+    "coveralls": "^3.0.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^4.19.1",
+    "eslint-config-omnious": "^0.4.0",
+    "gts": "^0.8.0",
+    "jest": "^23.5.0",
+    "jest-junit": "^5.1.0",
+    "nodemon": "^1.18.3",
+    "supertest": "^3.0.0",
+    "ts-jest": "^23.1.3",
+    "tslint": "^5.11.0",
+    "typescript": "~2.8.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json",
+        "useBabelrc": true
+      }
+    },
+    "testPathIgnorePatterns": [
+      "/build/",
+      "/src/"
+    ],
+    "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$"
+  }
+}
