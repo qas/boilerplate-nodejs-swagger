@@ -4,10 +4,14 @@
 version: '3.2'
 
 services:
-  app:
-    build: .
+  app_dev:
+    build: 
+      context: ./
+      dockerfile: Dockerfile.dev
     restart: always
     env_file: 
       - ./.env
+    volumes:
+      - .:/app
     ports:
       - 7070:7070

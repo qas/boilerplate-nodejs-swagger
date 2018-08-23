@@ -2,19 +2,19 @@
   "name": "koa-rest-api-boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate for Koa RESTful API application with Docker, Swagger, Jest, Coveralls, and Circle CI",
-  "homepage": "https://bitbucket.org/fitbe/template-server-nodejs-2",
+  "homepage": "https://github.com/qasimsoomro/koa-es7-swagger-rest",
   "author": {
-    "name": "Fitbe, Inc.",
-    "email": "devs@fitbe.co",
-    "url": "https://wwws.fitbe.co"
+    "name": "Acme, Inc.",
+    "email": "devs@acme.com",
+    "url": "https://www.website.com"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/fitbe/template-server-nodejs-2.git"
+    "url": "git+https://github.com/qasimsoomro/koa-es7-swagger-rest.git"
   },
   "bugs": {
-    "url": "https://bitbucket.org/fitbe/template-server-nodejs-2/issues"
+    "url": "https://github.com/qasimsoomro/koa-es7-swagger-rest/issues"
   },
   "keywords": [
     "typescript",
@@ -34,10 +34,10 @@
   "main": "src",
   "scripts": {
     "clean": "gts clean && rm -rf build",
-    "build": "tsc && npm run clean && babel ./src --extensions '.ts,.tsx' -d build && find src/spec -type f -name '*.yaml' -exec cp '{}' build/spec/ ';'",
+    "build": "tsc && npm run clean && babel ./src --extensions '.ts,.tsx' -d build && find ./src/ -type f -name '*.json' -exec cp '{}' ./build/ ';'",
     "start": "node build",
     "dev": "concurrently --kill-others --names \"tsc,node\" -c \"blue,green\" \"npx tsc --watch\" \"npx nodemon src/index.ts --inspect=5858 --exec babel-node --extensions '.ts,.tsx' src/index.ts\"",
-    "test": "tsc && cross-env NODE_ENV=test jest --forceExit --verbose --no-cache",
+    "test": "npm run fix && tsc && cross-env NODE_ENV=test jest --forceExit --verbose --no-cache",
     "test:unit": "npm test -- test/unit",
     "test:integration": "npm test -- test/integration",
     "test:watch": "npm test -- --watch",
@@ -50,9 +50,14 @@
     "check": "gts check",
     "compile": "tsc -p .",
     "fix": "gts fix",
+    "swagger-gen": "tsoa swagger",
+    "routes-gen": "tsoa routes",
+    "tsoa": "tsoa",
     "prepare": "npm run compile",
-    "pretest": "npm run compile",
-    "posttest": "npm run check"
+    "pretest": "npm run prepare",
+    "posttest": "npm run check",
+    "prestart": "npm run routes-gen",
+    "predev": "npm run swagger-gen && npm run routes-gen"
   },
   "dependencies": {
     "dotenv": "^6.0.0",
@@ -63,6 +68,7 @@
     "koa-router": "^7.4.0",
     "module-alias": "^2.1.0",
     "swagger-jsdoc": "^1.9.7",
+    "tsoa": "^2.1.8",
     "uuid": "^3.2.1",
     "winston": "^3.0.0",
     "winston-loggly-bulk": "^2.0.3"
@@ -71,10 +77,12 @@
     "@babel/cli": "^7.0.0-rc.1",
     "@babel/core": "^7.0.0-rc.1",
     "@babel/node": "^7.0.0-rc.1",
+    "@babel/plugin-proposal-decorators": "^7.0.0-rc.2",
     "@babel/preset-env": "^7.0.0-rc.1",
     "@babel/preset-typescript": "^7.0.0-rc.1",
     "@babel/register": "^7.0.0-rc.1",
     "@types/jest": "^23.3.1",
+    "@types/koa": "^2.0.46",
     "@types/node": "^10.7.1",
     "concurrently": "^3.6.1",
     "coveralls": "^3.0.0",

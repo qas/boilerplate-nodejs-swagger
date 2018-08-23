@@ -5,7 +5,7 @@ const { name } = require('./package.json');
 const isDev = process.env.NODE_ENV !== 'production';
 const app = {
   'name': name,
-  'script': 'app',
+  'script': 'build',
 
   // Scale app across CPUs available
   'exec_mode': 'cluster',
@@ -13,7 +13,7 @@ const app = {
   'instances': isDev ? 1 : 0,
 
   // Disallow watch mode in production
-  'watch': isDev && ['app', 'node_modules', '.env', 'package.json'],
+  'watch': isDev && ['build', 'node_modules', '.env', 'package.json'],
 
   // Variables for each environment
   'env': {

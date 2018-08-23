@@ -9,8 +9,7 @@ class LogFactory {
       case 'winston':
         return new LogWinston();
       default:
-        // TODO:highest/improve logic
-        throw Error('An unexpected error occurred');
+        throw Error(`Logger ${logProvider} is not recognized`);
     }
   }
 }

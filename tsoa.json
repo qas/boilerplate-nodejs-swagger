@@ -1,0 +1,14 @@
+{
+    "swagger": {
+        "outputDirectory": "./src",
+        "entryFile": "./src/index.ts",
+        "host": "localhost:7070",
+        "basePath": "/v1"
+    },
+    "routes": {
+        "basePath": "/v1",
+        "entryFile": "./src/index.ts",
+        "routesDir": "./src",
+        "middleware": "koa"
+    }
+}

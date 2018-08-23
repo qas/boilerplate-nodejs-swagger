@@ -4,7 +4,8 @@
     "outDir": "build",
     "noEmit": true,
     "esModuleInterop": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "experimentalDecorators": true
   },
   "include": [
     "src/*.ts",

@@ -1,7 +1,10 @@
-import {spec} from '../spec';
+import {Get, Route} from 'tsoa';
+const swaggerJson = require('../swagger.json');
 
-const showSwaggerSpecController = (ctx) => {
-  ctx.body = spec;
-};
-
-export {showSwaggerSpecController};
+@Route('spec')
+export class SpecController {
+  @Get()
+  async current() {
+    return swaggerJson;
+  }
+}

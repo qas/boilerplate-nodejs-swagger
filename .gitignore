@@ -194,6 +194,5 @@ tags
 ### Dist ###
 dist/
 
-### Data ###
-.data/
+### Build ###
 build

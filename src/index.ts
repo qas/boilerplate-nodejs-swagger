@@ -13,21 +13,20 @@ import {logMiddleware} from './middlewares/log';
 import {requestId} from './middlewares/requestId';
 import {responseHandler} from './middlewares/responseHandler';
 
-// Routes
-import {healthRouter} from './routes/health';
-import {specRouter} from './routes/spec';
-
 // Factories
 import {LogFactory} from './classes/LogFactory';
+
+// Routes
+import {RegisterRoutes} from './routes';
+
+// Controllers
+import './controllers/spec';
+import './controllers/health';
 
 // Instances
 const logger = LogFactory.getLogInstance('winston');
 const app = new Koa();
-const router = new Router({prefix: '/v1'});
-
-// Set routes
-healthRouter(router);
-specRouter(router);
+const router = new Router({});
 
 // Trust proxy
 app.proxy = true;
@@ -58,6 +57,8 @@ app.use(logMiddleware({
 app.use(router.routes());
 app.use(router.allowedMethods());
 
+RegisterRoutes(router);
+
 function onError(err) {
   if (apm.active) {
     apm.captureError(err);
@@ -67,7 +68,7 @@ function onError(err) {
         err,
         event: 'error',
       },
-      'Unhandled exception occured');
+      Error('Unhandled exception occured'));
 }
 
 // Handle uncaught errors

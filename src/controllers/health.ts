@@ -1,28 +1,19 @@
-// tslint:disable-next-line:no-var-requires
+import {Get, Route} from 'tsoa';
+
+import {Health} from '../models/health';
+
 const pkginfo = require('../../package.json');
 
-/**
- * @swagger
- * /v1/health:
- *   get:
- *     tags:
- *       - Public
- *     summary: Show API information.
- *     operationId: showApiInfo
- *     responses:
- *       200:
- *         description: Describe general API information
- */
-const healthController = (ctx) => {
-  // BUSINESS LOGIC
-  const data = {
-    name: pkginfo.name,
-    version: pkginfo.version,
-    description: pkginfo.description,
-    author: pkginfo.author,
-  };
-
-  ctx.res.ok(data, 'Hello, API!');
-};
-
-export {healthController};
+@Route('health')
+export class HealthController {
+  /** Get the current health */
+  @Get()
+  async current(): Promise<Health> {
+    return {
+      name: pkginfo.name,
+      version: pkginfo.version,
+      description: pkginfo.description,
+      author: pkginfo.author,
+    };
+  }
+}

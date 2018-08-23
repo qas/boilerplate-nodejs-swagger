@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/qasimsoomro/koa-rest-api-boilerplate" title="Koa REST API Boilerplate">
+  <a href="https://github.com/qasimsoomro/koa-es7-swagger-rest" title="Koa REST API Boilerplate">
     <img alt="Koa REST API Boilerplate" src="http://crocodillon.com/images/blog/2015/asynchronous-callbacks-in-koa--twitter.png" width="240px" />
   </a>
   <br />
@@ -9,18 +9,12 @@
 <p align="center">
   Proof of Concept
 
-  Boilerplate for Node.js Koa RESTful API application with Typescript, Docker, Swagger, Jest, Coveralls, and Circle CI
+  Boilerplate for Node.js Koa RESTful API application with TypeScript, Docker, Swagger, Jest, Coveralls, and Circle CI
 </p>
 
 <div align="center">
-  <a href="https://circleci.com/gh/qasimsoomro/koa-rest-api-boilerplate">
-    <img alt="CircleCI" src="https://circleci.com/gh/qasimsoomro/koa-rest-api-boilerplate.svg?style=shield" />
-  </a>
-  <a href="https://coveralls.io/github/qasimsoomro/koa-rest-api-boilerplate">
-    <img src="https://coveralls.io/repos/github/qasimsoomro/koa-rest-api-boilerplate/badge.svg" alt='Coverage Status' />
-  </a>
-  <a href="https://david-dm.org/qasimsoomro/koa-rest-api-boilerplate">
-    <img alt="npm" src="https://img.shields.io/david/qasimsoomro/koa-rest-api-boilerplate.svg?style=flat-square" />
+  <a href="https://coveralls.io/github/qasimsoomro/koa-es7-swagger-rest">
+    <img src="https://coveralls.io/repos/github/qasimsoomro/koa-es7-swagger-rest/badge.svg" alt='Coverage Status' />
   </a>
   <a href="https://opensource.org/licenses/mit-license.php">
     <img alt="MIT Licence" src="https://badges.frapsoft.com/os/mit/mit.svg?v=103" />
@@ -32,12 +26,14 @@
 
 <br />
 
-**Koa REST API Boilerplate** is a highly opinionated boilerplate template for building RESTful API application with Typescript & Koa.
+**Koa REST API Boilerplate** is a highly opinionated boilerplate template for building RESTful API application with TypeScript & Koa. This template comes loosely-typed. Please note that routes are auto generated.
 
 This boilerplate include the following features:
 
+- [TSOA](https://github.com/lukeautry/tsoa) for OpenAPI compliant documentation and routes generation
+- Style and linting with [Google TypeScript style](https://github.com/google/ts-style)
 - Multi-process clustering with production-ready process manager [PM2](http://pm2.keymetrics.io/)
-- Log rotation and log management using [Bunyan](https://github.com/trentm/node-bunyan)
+- Log rotation and log management using [Winston](https://github.com/winstonjs/winston)
 - A super small and optimized [Docker](https://www.docker.com/) image based on Alpine image
 - [Swagger](https://swagger.io/) API documentation based on JSDoc
 - Continuous integration and delivery using [CircleCI](https://circleci.com/)
@@ -47,15 +43,18 @@ This boilerplate include the following features:
 ## Getting Started
 
 ```zsh
-$ git clone https://github.com/qasimsoomro/koa-rest-api-boilerplate your-project-name
+$ git clone https://github.com/qasimsoomro/koa-es7-swagger-rest your-project-name
 $ cd your-project-name
 $ rm -rf .git && git init
 ```
 
 ```zsh
 $ yarn
+$ yarn build
 $ yarn start
 ```
+
+To rebuild TSOA, simply run `yarn run routes-gen`, this is usually taken care of by pre build scripts.
 
 
 ## Commands
@@ -66,8 +65,10 @@ $ yarn start
 ```zsh
 # Run normally
 $ yarn start
-# Run the application with nodemon for development
-$ yarn dev
+# Run the application with Docker for development with Nodemon
+$ docker-compose up
+$ curl localhost:7070/v1/spec
+$ curl localhost:7070/v1/health
 ```
 
 ### Test
@@ -103,11 +104,11 @@ This project follows the [**Contributor Covenant**](http://contributor-covenant.
 
 #### Bug Reports & Feature Requests
 
-Please use the [issue tracker](https://github.com/qasimsoomro/koa-rest-api-boilerplate/issues) to report any bugs or ask feature requests.
+Please use the [issue tracker](https://github.com/qasimsoomro/koa-es7-swagger-rest/issues) to report any bugs or ask feature requests.
 
 
 ## License
 
-Provided under the terms of the [MIT License](https://github.com/qasimsoomro/koa-rest-api-boilerplate/blob/master/LICENSE).
+Provided under the terms of the [MIT License](https://github.com/qasimsoomro/koa-es7-swagger-rest/blob/master/LICENSE).
 
-Copyright © 2018, [Qasim Soomro](http://www.qasimsoomro.com).
+Copyright © 2018, [Qasim Soomro](https://www.holonis.com/q).
