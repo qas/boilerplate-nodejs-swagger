@@ -5,7 +5,8 @@
     "noEmit": true,
     "esModuleInterop": true,
     "noImplicitAny": false,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "src/*.ts",

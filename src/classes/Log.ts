@@ -1,6 +1,5 @@
 import * as util from 'util';
 import {config} from '../config';
-// tslint:disable-next-line:no-var-requires
 const {version} = require('../../package.json');
 
 const defaults = {

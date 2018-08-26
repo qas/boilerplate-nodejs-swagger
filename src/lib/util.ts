@@ -8,4 +8,4 @@ const timeout = async (milliseconds) => {
   }));
 };
 
-export {isObject, isNil, get, set, timeout};
+export {get, isNil, isObject, set, timeout};

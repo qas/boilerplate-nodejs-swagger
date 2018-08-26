@@ -27,9 +27,6 @@ jobs:
             yarn test:coverage --ci --coverageDirectory ~/reports --testResultsProcessor jest-junit
           environment:
             JEST_JUNIT_OUTPUT: "~/reports/test-results.xml"
-      - run:
-          name: Send Coverage
-          command: yarn run coveralls < ~/reports/lcov.info
       - store_test_results:
           path: ~/reports
       - store_artifacts:

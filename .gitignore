@@ -191,8 +191,11 @@ tags
 # tsconfig.json
 # jsconfig.json
 
-### Dist ###
-dist/
-
 ### Build ###
 build
+
+### Swagger.json ###
+src/swagger*
+
+### routes.ts ###
+src/routes*

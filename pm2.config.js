@@ -1,5 +1,3 @@
-'use strict';
-
 const { name } = require('./package.json');
 
 const isDev = process.env.NODE_ENV !== 'production';

@@ -14,7 +14,7 @@ LABEL maintainer "Qasim Soomro <qasim@soomro.com>"
 # Set the working directory
 WORKDIR /app
 # Copy project specification and dependencies lock files
-COPY package.json tsconfig.json yarn.lock ./
+COPY package.json tsconfig.json yarn.lock tsoa.json ./
 # Install yarn
 RUN apk --no-cache add yarn
 
@@ -33,6 +33,8 @@ FROM dependencies AS test
 COPY . .
 # Install ALL Node.js dependencies
 RUN yarn
+# Build Swagger and routes
+RUN yarn swagger-gen && routes-gen
 # Run linters and tests
 RUN yarn lint && yarn test
 

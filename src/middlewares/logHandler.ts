@@ -1,14 +1,7 @@
 import {get, isNil, isObject} from '../lib/util';
+import {Context} from '../types/context';
 
-function reqSerializer(ctx = {
-  method: undefined,
-  path: undefined,
-  url: undefined,
-  headers: undefined,
-  protocol: undefined,
-  ip: undefined,
-  query: undefined,
-}) {
+function reqSerializer(ctx: Context) {
   return {
     method: ctx.method,
     path: ctx.path,
@@ -32,13 +25,7 @@ function resBodySerializer({
   return body;
 }
 
-function resSerializer(ctx = {
-  status: undefined,
-  responseTime: undefined,
-  type: undefined,
-  response: undefined,
-  body: undefined,
-}) {
+function resSerializer(ctx: Context) {
   return {
     statusCode: ctx.status,
     responseTime: ctx.responseTime,
@@ -56,7 +43,7 @@ function resSerializer(ctx = {
  * @param {Object} options.logger - Logger instance of bunyan.
  * @return {function} Koa middleware.
  */
-function log(options = {
+function logHandler(options = {
   logger: {},
 }) {
   const {logger} = options;
@@ -102,4 +89,4 @@ function log(options = {
   };
 }
 
-export {log as logMiddleware};
+export {logHandler};

@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import Koa from 'koa';
 import Router from 'koa-router';
 import bodyParser from 'koa-bodyparser';
@@ -9,7 +7,7 @@ import {config} from './config';
 
 // Middleware
 import {errorHandler} from './middlewares/errorHandler';
-import {logMiddleware} from './middlewares/log';
+import {logHandler} from './middlewares/logHandler';
 import {requestId} from './middlewares/requestId';
 import {responseHandler} from './middlewares/responseHandler';
 
@@ -49,7 +47,7 @@ app.use(
 );
 app.use(responseHandler());
 app.use(errorHandler());
-app.use(logMiddleware({
+app.use(logHandler({
   logger,
 }));
 

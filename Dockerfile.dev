@@ -14,7 +14,7 @@ LABEL maintainer "Qasim Soomro <qasim@soomro.com>"
 # Set the working directory
 WORKDIR /app
 # Copy project specification and dependencies lock files
-COPY package.json tsconfig.json yarn.lock ./
+COPY package.json tsconfig.json yarn.lock tsoa.json ./
 # Install yarn
 RUN apk --no-cache add yarn
 
@@ -25,6 +25,8 @@ FROM base AS dependencies
 RUN yarn
 # Install concurrently
 RUN yarn add global concurrently
+# Build Swagger and routes
+RUN yarn swagger-gen && yarn routes-gen
 
 
 ### TEST
