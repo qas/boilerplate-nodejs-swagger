@@ -1,5 +1,5 @@
 import {Get, Route} from 'tsoa';
-const swaggerJson = require('../swagger.json');
+import swaggerJson from '../swagger.json';
 
 @Route('spec')
 export class SpecController {

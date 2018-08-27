@@ -1,6 +1,7 @@
 import {Get, Route} from 'tsoa';
+
+import pkginfo from '../../package.json';
 import {Health} from '../models/health';
-const pkginfo = require('../../package.json');
 
 @Route('health')
 export class HealthController {

@@ -1,7 +1,9 @@
 import * as util from 'util';
-import {config} from '../config';
-const {version} = require('../../package.json');
 
+import pkginfo from '../../package.json';
+import {config} from '../config';
+
+const version = pkginfo.version;
 const defaults = {
   msg: '',
   env: config.env,

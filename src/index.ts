@@ -1,25 +1,23 @@
-import Koa from 'koa';
-import Router from 'koa-router';
-import bodyParser from 'koa-bodyparser';
-import cors from 'kcors';
-import {apm} from './apm';
-import {config} from './config';
+// Controllers
+import './controllers/spec';
+import './controllers/health';
 
+import cors from 'kcors';
+import Koa from 'koa';
+import bodyParser from 'koa-bodyparser';
+import Router from 'koa-router';
+
+import {apm} from './apm';
+// Factories
+import {LogFactory} from './classes/LogFactory';
+import {config} from './config';
 // Middleware
 import {errorHandler} from './middlewares/errorHandler';
 import {logHandler} from './middlewares/logHandler';
 import {requestId} from './middlewares/requestId';
 import {responseHandler} from './middlewares/responseHandler';
-
-// Factories
-import {LogFactory} from './classes/LogFactory';
-
 // Routes
 import {RegisterRoutes} from './routes';
-
-// Controllers
-import './controllers/spec';
-import './controllers/health';
 
 // Instances
 const logger = LogFactory.getLogInstance('winston');
