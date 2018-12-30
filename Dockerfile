@@ -1,11 +1,8 @@
 #
-# KOA REST API BOILERPLATE
-#
 # build:
-#   docker build --force-rm -t qasimsoomro/koa-rest-api-boilerplate .
+#   docker build --force-rm -t qas/boilerplate-server-node-swagger-api .
 # run:
-#   docker run --rm --it --env-file=path/to/.env --name koa-rest-api-boilerplate -p 80:7071 qasimsoomro/koa-rest-api-boilerplate
-#
+#   docker run --rm --it --env-file=path/to/.env --name boilerplate-server-node-swagger-api -p 80:7071 qas/boilerplate-server-node-swagger-api
 #
 
 ### BASE
