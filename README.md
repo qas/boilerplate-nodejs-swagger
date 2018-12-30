@@ -1,14 +1,12 @@
 <div align="center">
-  <a href="https://github.com/qasimsoomro/koa-es7-swagger-rest" title="Koa REST API Boilerplate">
+  <a href="https://github.com/qas/boilerplate-server-node-swagger-api" title="Node.js RESTful API Boilerplate w/Koa">
     <img alt="Koa REST API Boilerplate" src="http://crocodillon.com/images/blog/2015/asynchronous-callbacks-in-koa--twitter.png" width="240px" />
   </a>
   <br />
-  <h1>Koa REST API Boilerplate</h1>
+  <h1>Node.js RESTful API Boilerplate</h1>
 </div>
 
-Proof of Concept
-
-Boilerplate for Node.js Koa RESTful API application with TypeScript, Docker, Swagger, Jest, and CircleCI
+Boilerplate for Node.js Koa RESTful API application with TypeScript, Docker, Swagger, Jest, and CircleCI.
 
 <a href="https://opensource.org/licenses/mit-license.php">
 <img alt="MIT Licence" src="https://badges.frapsoft.com/os/mit/mit.svg?v=103" />
@@ -18,7 +16,7 @@ Boilerplate for Node.js Koa RESTful API application with TypeScript, Docker, Swa
 
 <br />
 
-**Koa REST API Boilerplate** is a highly opinionated boilerplate template for building a RESTful API application with TypeScript & Koa. This template comes loosely-typed.
+**Koa REST API Boilerplate** is a highly opinionated boilerplate template for building a RESTful API application with TypeScript & Koa - this template comes loosely-typed.
 
 This boilerplate includes the following features:
 
@@ -34,7 +32,7 @@ This boilerplate includes the following features:
 ## Getting Started
 
 ```zsh
-$ git clone https://github.com/qasimsoomro/koa-es7-swagger-rest your-project-name
+$ git clone https://github.com/https://github.com/qas/boilerplate-server-node-swagger-api your-project-name
 $ cd your-project-name
 $ rm -rf .git && git init
 ```
@@ -68,15 +66,15 @@ $ curl localhost:7070/v1/health
 # Test
 $ yarn test                           # Run all test
 $ yarn test:unit                      # Run only unit test
-$ yarn test:integration               # Run only integration test
+$ yarn test:e2e                       # Run only integration test
 # Test (Watch Mode for development)
 $ yarn test:watch                     # Run all test with watch mode
 $ yarn test:watch:unit                # Run only unit test with watch mode
-$ yarn test:watch:integration         # Run only integration test with watch mode
+$ yarn test:watch:e2e                 # Run only integration test with watch mode
 # Test Coverage
 $ yarn test:coverage                  # Calculate the coverage of all test
 $ yarn test:coverage:unit             # Calculate the coverage of unit test
-$ yarn test:coverage:integration      # Calculate the coverage of integration test
+$ yarn test:coverage:e2e              # Calculate the coverage of integration test
 # Test consistent coding style (Lint)
 $ yarn lint                           # Lint all sourcecode
 ```
@@ -95,11 +93,11 @@ This project follows the [**Contributor Covenant**](http://contributor-covenant.
 
 #### Bug Reports & Feature Requests
 
-Please use the [issue tracker](https://github.com/qasimsoomro/koa-es7-swagger-rest/issues) to report any bugs or ask feature requests.
+Please use the [issue tracker](https://github.com/qas/boilerplate-server-node-swagger-api/issues) to report any bugs or ask feature requests.
 
 
 ## License
 
-Provided under the terms of the [MIT License](https://github.com/qasimsoomro/koa-es7-swagger-rest/blob/master/LICENSE).
+Provided under the terms of the [MIT License](https://github.com/qas/boilerplate-server-node-swagger-api/blob/master/LICENSE).
 
 Copyright © 2018, [Qasim Soomro](https://www.holonis.com/q).
